@@ -30,9 +30,9 @@
     [connectToWebsite addTarget:self action:@selector(connectToSite) forControlEvents:UIControlEventTouchUpInside];
     
     
-     
-     //Uncomment this section to add a custom error Description for error code -1003
-    NSDictionary *errors = @{@-1003:@"Are you sure about that URL?", @-1009:@"Internet is gone!"};
+    
+     //This section adds custom error Descriptions for error code -1003 and -1009. These override the ones in the ErrorDescriptor class method +(NSMutableDictionary *)errors; You can add more Custom Error descriptors and their respective codes to the NSDictionary here, or you can add them directly in the +(NSMutableDictionary *)errors; method in the ErrorDescriptor.m file
+    NSDictionary *errors = @{@-1003:@"Are you sure about that URL?", @-1009:@"Internet Connection Gone!"};
      [ErrorDescriptor addCustomErrorDescriptions:errors];
     
 }

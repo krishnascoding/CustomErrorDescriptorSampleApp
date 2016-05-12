@@ -18,7 +18,7 @@ static NSMutableDictionary *_errors;
     
         _errors = [NSMutableDictionary dictionary];
         
-        // You can also directly adjust the Custom Error Messages here if you do not want to do it with the addCustomErrorDescriptions: method. Simply continue in the same way - set messages for the object and error code as the keys
+        // You can also directly adjust the Custom Error Messages here if you do not want to do it using the addCustomErrorDescriptions: method. Simply continue in the same way as below - set messages for the object and error codes as the keys
         [_errors setObject:@"You aren't connected to the Internet!" forKey:@-1009];
         [_errors setObject:@"We couldn't connect to the server" forKey:@-1001];
         
