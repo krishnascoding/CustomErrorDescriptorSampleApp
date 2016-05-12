@@ -1,6 +1,9 @@
 # CustomErrorDescriptorSampleApp
 Sample Project with Custom Class which allows you to create Custom Error Description messages in Objective C 
 
+So instead of this message for URL Connection Error -1009 when the user is not connected to the internet - "The connection failed because the device is not connected to the internet."
+You can display this error - "You have to be connected to the Internet to do that!" - or whatever other custom message you wish to display for any error descriptions. 
+
 To Test the Sample Project Follow These Steps
 - Download Zip file, uncompress and open project
 - Make sure App Transport Security Settings in Info.plist has the Allows Arbitrary Loads set to YES
