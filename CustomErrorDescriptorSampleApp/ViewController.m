@@ -29,8 +29,7 @@
     
     [connectToWebsite addTarget:self action:@selector(connectToSite) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    
+     
      //This section adds custom error Descriptions for error code -1003 and -1009. These override the ones in the ErrorDescriptor class method +(NSMutableDictionary *)errors; You can add more Custom Error descriptors and their respective codes to the NSDictionary here, or you can add them directly in the +(NSMutableDictionary *)errors; method in the ErrorDescriptor.m file
     NSDictionary *errors = @{@-1003:@"Are you sure about that URL?", @-1009:@"Internet Connection Gone!"};
      [ErrorDescriptor addCustomErrorDescriptions:errors];
@@ -41,7 +40,7 @@
 {
     
     // Set up NSURLSession to connect to google.com, except the URL is wrong so we will get an error!
-    NSURL *url = [NSURL URLWithString:@"http://www.google.comaaa"];
+    NSURL *url = [NSURL URLWithString:@"http://www.googl.caaaaaaa"];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
