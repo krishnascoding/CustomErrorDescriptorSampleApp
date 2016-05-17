@@ -22,6 +22,7 @@ To Add This Class to your own project
 [ErrorDescriptor addCustomErrorDescriptions:errors];
 - If you do not want to do this in ViewDidLoad you can add the Custom Error Descriptions you want directly in the +(NSMutableDictionary *)errors; method in ErrorDescriptor.m
 - That’s all to set up the custom error messages. Then anywhere you would potentially need to display an error in your app, you can call the following method [ErrorDescriptor description:error]; 
+- And if you would like to display the error using a UIAlertController pop-up you can use this method as shown in the sample app [ErrorDescriptor displayUIAlertControllerWithError:error onViewController:self];
 - That’s it! 
 
 

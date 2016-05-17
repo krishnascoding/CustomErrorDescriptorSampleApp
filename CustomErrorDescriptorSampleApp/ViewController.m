@@ -59,21 +59,10 @@
             // Here we NSLog the Error Code and Error description using our Custom Class
             NSLog(@"Error Code:%ld Description: %@" ,(long)error.code, [ErrorDescriptor description:error]);
             
-            // We add a UIAlertController to display the message to the User which has to be called on the main queue or it will cause weird errors
+            // This method creates and dispatches a UIAlertController when there is an error. The UIAlertController is created in the ErrorDescriptor class and dispatched on the ViewController calling it (ie. self). You can use this method anywhere you want a UIAlertController to appear when there is an error. You can configure the alert message and title in the method in ErrorDescriptor.m
             
-            dispatch_async(dispatch_get_main_queue(), ^{
+            [ErrorDescriptor displayUIAlertControllerWithError:error onViewController:self];
             
-                // Just for demonstration purposes, I am making the alertController Title our Custom Message and the message the standard localizedDescription. You can adjust these any way you prefer.
-                UIAlertController* alert = [UIAlertController alertControllerWithTitle:[ErrorDescriptor description:error]
-                                                                               message:[error localizedDescription]
-                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                      handler:^(UIAlertAction * action) {}];
-                
-                [alert addAction:defaultAction];
-                [self presentViewController:alert animated:YES completion:nil];
-            });
         }
         
     }];

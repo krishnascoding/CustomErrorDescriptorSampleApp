@@ -39,6 +39,28 @@ static NSMutableDictionary *_errors;
     return [error localizedDescription];
 }
 
++(void)displayUIAlertControllerWithError:(NSError*)error onViewController:(id)vc
+{
+    
+//  We add a UIAlertController to display the message to the User which has to be called on the main queue or it will cause weird errors
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+        // Just for demonstration purposes, I am making the alertController Title our Custom Error Description and the message the standard localizedDescription. You can adjust these any way you prefer
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:[ErrorDescriptor description:error]
+                                                                       message:[error localizedDescription]
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+
+        [alert addAction:defaultAction];
+        [vc presentViewController:alert animated:YES completion:nil];
+    });
+
+}
+
+
 +(void)addCustomErrorDescriptions:(NSDictionary *)dictionary
 {
     if (!_errors) {

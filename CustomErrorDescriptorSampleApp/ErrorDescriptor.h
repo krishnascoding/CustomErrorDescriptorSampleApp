@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 
 @interface ErrorDescriptor : NSObject
 
@@ -17,5 +19,7 @@
 
 // Returns NSDictionary of the custom error codes and descriptions currently in this class
 +(NSDictionary *)listErrorDescriptions;
+
++(void)displayUIAlertControllerWithError:(NSError*)error onViewController:(id)vc;
 
 @end
